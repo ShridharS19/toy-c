@@ -1,0 +1,32 @@
+# Build artifacts
+/build/
+/target/
+/dist/
+/*.o
+/*.obj
+/*.exe
+/*.out
+/*.dll
+/*.so
+/*.dylib
+
+# VSCode
+.vscode/
+.history/
+.devcontainer/.cache
+
+# Rust
+**/target/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Python
+__pycache__/
+*.pyc
+
+# Secrets
+.env

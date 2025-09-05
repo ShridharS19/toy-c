@@ -1,0 +1,23 @@
+{
+  "name": "C/C++ Devcontainer",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "C_Cpp.intelliSenseEngine": "Disabled",
+    "clangd.path": "/usr/bin/clangd"
+  },
+  "extensions": [
+    "ms-vscode.cpptools",
+    "llvm-vs-code-extensions.vscode-clangd",
+    "ms-vscode.cmake-tools",
+    "vadimcn.vscode-lldb",
+    "eamodio.gitlens",
+    "github.vscode-pull-request-github",
+    "xaver.clang-format",
+    "ms-azuretools.vscode-docker"
+  ],
+  "forwardPorts": [],
+  "remoteUser": "vscode"
+}
