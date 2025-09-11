@@ -8,10 +8,9 @@ main(){
     upper = 300; /* upper limit */
     step = 20; /* step size */
     fahr = lower;
-    printf("TABLE HEADING\n");
-    while (fahr <= upper) {
+    printf("FAHRENHEIT CELSIUS\n");
+    for(fahr = 300; fahr >=0 ; fahr-=20){
         celsius = (5.0/9.0) * (fahr-32.0);
-        printf("%3.0f %6.2f\n", fahr, celsius);
-        fahr = fahr + step;
+        printf(" %5.0f %10.2f\n", fahr, celsius);
     }
 }
