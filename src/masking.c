@@ -1,11 +1,11 @@
 #include <stdio.h>
-#define MASK 0xFF
+#define MASK 0xFFu
 typedef char *byte_pointer;
 
 void show_bytes(byte_pointer start, int len)
 {
     int i;
-    for (i = 0; i < len; i++)
+    for (i = len-1; i >=0; i--)
     {
         printf(" %02x", (unsigned char) start[i]);
     }
