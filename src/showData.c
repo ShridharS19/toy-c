@@ -40,8 +40,9 @@ void test_show_bytes(int val)
     show_float(fval);
     show_pointer(pval);
 }
-main(){
+int main(void){
     char *val = "ABCDEF";
     //byte_pointer valp = (byte_pointer) val;
     show_bytes_big(val, strlen(val));
+    return 0;
 }

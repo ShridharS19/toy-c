@@ -1,5 +1,6 @@
 #include <stdio.h>
-main(){
+#include <stdlib.h>
+int main(void){
     int c;
     int charSet[256];
     for(int i =0;i<256;i++){
@@ -19,4 +20,5 @@ main(){
             printf("\n");
         }
     }
+    return EXIT_SUCCESS
 }

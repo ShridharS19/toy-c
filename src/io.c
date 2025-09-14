@@ -1,6 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
   /* copy input to output; 1st version */
-   main()
+   int main(void)
     {  
         int c;
         int prev = 0; 
@@ -14,5 +15,6 @@
             }else{
                prev = 0;
             }
-         } 
+         }
+         return EXIT_SUCCESS;
     }
