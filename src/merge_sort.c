@@ -1,31 +1,49 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
+#define length 1000
+double* generate_random_double_array(int n) {
+    double* arr = malloc(n * sizeof(double));
+    if (arr == NULL) {
+        return NULL; // Memory allocation failed
+    }
+
+    srand((unsigned int)time(NULL)); // Seed random number generator
+
+    for (int i = 0; i < n; i++) {
+        arr[i] = (double)rand() / RAND_MAX; // Random double in [0, 1]
+    }
+
+    return arr;
+}
 
 void printarr(double *a, int n){
-    for (int i =0; i<n; i++) {
+    for (int i = 0; i<n; i++) {
         printf("%f ",a[i]);
     }
     
     printf(" \n");
 }
 
+int isSorted(double *a, int n){
+
+    for(int i = 0; i<n-1; i++){
+        if(a[i]>a[i+1]){
+            return 0;
+        }
+    }
+    return 1;
+}
+
 double* merge_sort_helper(double *a, int n, double* b)
 {   
-    printf("n %d \n",n);
     if(n<=1)
     {
         return a;
     }
     int mid = n/2;
-    printf("mid and n-mid %d %d  \n",mid,n-mid);
     double *left = merge_sort_helper(a, mid,b);
     double *right = merge_sort_helper(a + mid, n - mid,b);
-    //printf("%f", (a+4)[0]);
-    printf("left array \n");
-    printarr(left,mid);
-    
-    printf("right array \n");
-    printarr(right,n-mid);
     int j = 0;
     int k = 0;
     for(int i = 0; i<n;i++)
@@ -40,9 +58,15 @@ double* merge_sort_helper(double *a, int n, double* b)
             b[i] = left[j];
             j++;
         }
+        else if(k == n-mid){
+            b[i] = left[j];
+            j++;
+        }
+        else if(j==mid){
+            b[i] = right[k];
+            k++;
+        }
     }
-    printf("merged \n");
-    printarr(b,n);
     for(int i = 0; i<n;i++)
     {
         left[i] = b[i];
@@ -60,8 +84,13 @@ double* merge_sort(double *a, int n)
 }
 int main(void)
 {
-    double p[] = {3.14,2.5,5.77,1.618,2.71828};
-    merge_sort(&p[0], 5);
-    printarr(&p[0], 5);
+    double* p = generate_random_double_array(length);
+    printarr(&p[0], 10);
+    merge_sort(&p[0], length);
+    printarr(&p[0], 10);
+    if(isSorted(&p[0], length)){
+        printf("sorted!");
+    }
+    free(p);
     return EXIT_SUCCESS;
 }
